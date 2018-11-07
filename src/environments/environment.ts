@@ -9,7 +9,8 @@ export const env = {
   endpoint: {
     student: "/student/student",
     course: "/course/course",
-    instructor: "/instructor/instructor"
+    instructor: "/instructor/instructor",
+    auth: "/oauth/token"
   }
 };
 

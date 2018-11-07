@@ -1,9 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import axios from "axios";
+import { AxiosInstance } from "axios";
+import { env } from "../../environments/environment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UserService {
+  apiURL = `${env.baseURL}${env.endpoint.auth}`;
+  private axiosClient: AxiosInstance;
+  constructor() {
+    this.axiosClient = axios.create();
+  }
 
-  constructor() { }
+  login(data) {
+    return this.axiosClient.post(this.apiURL, data);
+  }
 }
