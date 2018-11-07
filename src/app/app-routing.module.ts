@@ -4,10 +4,12 @@ import { StudentListComponent } from "./student/student-list/student-list.compon
 import { DashboardComponent } from "./dashboard/dashboard/dashboard.component";
 import { InstructorListComponent } from "./instructor/instructor-list/instructor-list.component";
 import { CourseListComponent } from "./course/course-list/course-list.component";
+import { StudentDetailComponent } from "./student/student-detail/student-detail.component";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "students", component: StudentListComponent },
+  { path: "student/:id", component: StudentDetailComponent },
   { path: "instructors", component: InstructorListComponent },
   { path: "courses", component: CourseListComponent }
 ];

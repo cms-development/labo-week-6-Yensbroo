@@ -22,4 +22,8 @@ export class StudentService {
   getStudent(id) {
     return this.axiosClient.get(`${this.apiURL}/`, id);
   }
+
+  deleteStudent(id) {
+    return this.axiosClient.delete(`${this.apiURL}/`, id);
+  }
 }

@@ -8,14 +8,18 @@ import { StudentService } from "src/app/services/student.service";
 })
 export class StudentListComponent implements OnInit {
   constructor(private studentService: StudentService) {}
-
+  students: any;
   ngOnInit() {
     this.getStudents();
   }
 
   getStudents() {
     this.studentService.getStudents().then(res => {
-      console.log(res.data);
+      this.students = res.data.data;
     });
+  }
+
+  deleteStudent(id) {
+    this.studentService.deleteStudent(id);
   }
 }
