@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { StudentService } from "src/app/services/student.service";
+import { faTrash, faPenSquare } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-student-list",
@@ -9,6 +10,8 @@ import { StudentService } from "src/app/services/student.service";
 export class StudentListComponent implements OnInit {
   constructor(private studentService: StudentService) {}
   students: any;
+  faTrash = faTrash;
+  faPenSquare = faPenSquare;
   ngOnInit() {
     this.getStudents();
   }

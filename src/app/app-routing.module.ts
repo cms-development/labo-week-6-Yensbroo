@@ -5,11 +5,13 @@ import { DashboardComponent } from "./dashboard/dashboard/dashboard.component";
 import { InstructorListComponent } from "./instructor/instructor-list/instructor-list.component";
 import { CourseListComponent } from "./course/course-list/course-list.component";
 import { StudentDetailComponent } from "./student/student-detail/student-detail.component";
+import { AddStudentComponent } from "./student/add-student/add-student.component";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "students", component: StudentListComponent },
   { path: "student/:id", component: StudentDetailComponent },
+  { path: "add/student", component: AddStudentComponent },
   { path: "instructors", component: InstructorListComponent },
   { path: "courses", component: CourseListComponent }
 ];
