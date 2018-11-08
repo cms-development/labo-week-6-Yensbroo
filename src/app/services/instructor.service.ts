@@ -16,4 +16,20 @@ export class InstructorService {
   getInstructors() {
     return this.axiosClient.get(this.apiURL);
   }
+
+  getInstructor(id) {
+    return this.axiosClient.get(`${this.apiURL}/${id}`);
+  }
+
+  addInstructor(id, data) {
+    return this.axiosClient.post(`${this.apiURL}/${id}`, data);
+  }
+
+  editInstructor(id, data) {
+    return this.axiosClient.patch(`${this.apiURL}/${id}`, data);
+  }
+
+  deleteInstructor(id) {
+    return this.axiosClient.delete(`${this.apiURL}/${id}`);
+  }
 }

@@ -23,6 +23,14 @@ export class StudentService {
     return this.axiosClient.get(`${this.apiURL}/${id}`);
   }
 
+  addStudent(data) {
+    return this.axiosClient.post(this.apiURL, data);
+  }
+
+  editStudent(id, data) {
+    return this.axiosClient.patch(`${this.apiURL}/${id}`, data);
+  }
+
   deleteStudent(id) {
     return this.axiosClient.delete(`${this.apiURL}/${id}`);
   }

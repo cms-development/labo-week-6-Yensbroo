@@ -4,7 +4,7 @@
 
 export const env = {
   production: false,
-  baseURL: "http://127.0.0.1:8088",
+  baseURL: "http://localhost:8088",
   api: "/jsonapi",
   endpoint: {
     student: "/student/student",

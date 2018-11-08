@@ -23,6 +23,10 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent(id) {
+    const filteredStudents = this.students.filter(student => {
+      return student.id !== id;
+    });
+    this.students = filteredStudents;
     this.studentService.deleteStudent(id);
   }
 }

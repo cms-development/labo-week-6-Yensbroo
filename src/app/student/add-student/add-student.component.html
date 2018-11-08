@@ -1,3 +1,31 @@
-<p>
-  add-student works!
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8 add-student__container">
+      <h1>Voeg een student toe</h1>
+      <form>
+        <div class="form-group">
+          <label for="">Voornaam</label>
+          <input type="text" [(ngModel)]="firstName" name="firstName">
+        </div>
+        <div class="form-group">
+          <label for="">Achternaam</label>
+          <input type="text" [(ngModel)]="lastName" name="lastName">
+        </div>
+        <div class="form-group">
+          <label for="">Cursussen</label><br>
+          <select name="course_id" id="selectedCourse" class="col-lg-10" [(ngModel)]="selectedCourse">
+            <option value="" selected>Kies een cursus</option>
+            <option *ngFor="let course of courses" [ngValue]="course.attributes">{{course.attributes.name}}</option>
+          </select>
+          <button class="add-course col-lg-2" (click)="addCourseToArray()">Voeg cursus toe</button>
+          <ul>
+            <li *ngFor="let courseItem of courseList">
+              {{courseItem.name}} <fa-icon class="times" [icon]="faTimes" (click)="removeCourseFromArray(courseItem.id)"></fa-icon>
+            </li>
+          </ul>
+        </div>
+        <button class="add-student" (click)="addStudent()">Voeg student toe</button>
+      </form>
+    </div>
+  </div>
+</div>

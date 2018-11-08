@@ -14,10 +14,22 @@ export class CourseService {
   }
 
   getCourses() {
-    this.axiosClient.get(this.apiURL);
+    return this.axiosClient.get(this.apiURL);
   }
 
   getCourse(id) {
-    this.axiosClient.get(`${this.apiURL}/${id}`);
+    return this.axiosClient.get(`${this.apiURL}/${id}`);
+  }
+
+  addCourse(id, data) {
+    return this.axiosClient.post(`${this.apiURL}/${id}`, data);
+  }
+
+  editCourse(id, data) {
+    return this.axiosClient.patch(`${this.apiURL}/${id}`, data);
+  }
+
+  deleteCourse(id) {
+    return this.axiosClient.delete(`${this.apiURL}/${id}`);
   }
 }
