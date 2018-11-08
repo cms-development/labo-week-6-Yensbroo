@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { StudentService } from "src/app/services/student.service";
 import { CourseService } from "src/app/services/course.service";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-student",
@@ -10,16 +10,14 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./add-student.component.scss"]
 })
 export class AddStudentComponent implements OnInit {
+  firstName;
+  lastName;
   faTimes = faTimes;
   courses: any;
   addedCourses: Array<any> = [];
   courseList: Array<any> = [];
   selectedCourse;
-  constructor(
-    private studentService: StudentService,
-    private courseService: CourseService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private studentService: StudentService, private courseService: CourseService, private router: Router) {}
 
   ngOnInit() {
     this.getCourses();
@@ -30,8 +28,8 @@ export class AddStudentComponent implements OnInit {
       data: {
         type: "student--student",
         attributes: {
-          name: "Jorgen Pluymers",
-          field_first_name: "Jorgen"
+          name: `${this.firstName} ${this.lastName}`,
+          field_first_name: this.firstName
         },
         relationships: {
           field_courses: {
@@ -41,7 +39,7 @@ export class AddStudentComponent implements OnInit {
       }
     };
     this.studentService.addStudent(data).then(res => {
-      console.log(res);
+      this.router.navigate([`/student/${res.data.data.id}`]);
     });
   }
 
