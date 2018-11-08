@@ -21,8 +21,8 @@ export class InstructorService {
     return this.axiosClient.get(`${this.apiURL}/${id}`);
   }
 
-  addInstructor(id, data) {
-    return this.axiosClient.post(`${this.apiURL}/${id}`, data);
+  addInstructor(data) {
+    return this.axiosClient.post(this.apiURL, data);
   }
 
   editInstructor(id, data) {

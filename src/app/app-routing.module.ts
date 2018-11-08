@@ -8,6 +8,7 @@ import { StudentDetailComponent } from "./student/student-detail/student-detail.
 import { AddStudentComponent } from "./student/add-student/add-student.component";
 import { LoginComponent } from "./authentication/login/login.component";
 import { InstructorDetailComponent } from "./instructor/instructor-detail/instructor-detail.component";
+import { AddInstructorComponent } from "./instructor/add-instructor/add-instructor.component";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "add/student", component: AddStudentComponent },
   { path: "instructors", component: InstructorListComponent },
   { path: "instructor/:id", component: InstructorDetailComponent },
+  { path: "add/instructor", component: AddInstructorComponent },
   { path: "courses", component: CourseListComponent },
   { path: "login", component: LoginComponent }
 ];

@@ -6,9 +6,10 @@ import { AddInstructorComponent } from "./add-instructor/add-instructor.componen
 import { EditInstructorComponent } from "./edit-instructor/edit-instructor.component";
 import { RouterModule } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [InstructorListComponent, InstructorDetailComponent, AddInstructorComponent, EditInstructorComponent],
-  imports: [CommonModule, RouterModule, FontAwesomeModule]
+  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule]
 })
 export class InstructorModule {}
