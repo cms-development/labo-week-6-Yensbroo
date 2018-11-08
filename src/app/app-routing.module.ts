@@ -9,6 +9,8 @@ import { AddStudentComponent } from "./student/add-student/add-student.component
 import { LoginComponent } from "./authentication/login/login.component";
 import { InstructorDetailComponent } from "./instructor/instructor-detail/instructor-detail.component";
 import { AddInstructorComponent } from "./instructor/add-instructor/add-instructor.component";
+import { CourseDetailComponent } from "./course/course-detail/course-detail.component";
+import { AddCourseComponent } from "./course/add-course/add-course.component";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: "instructor/:id", component: InstructorDetailComponent },
   { path: "add/instructor", component: AddInstructorComponent },
   { path: "courses", component: CourseListComponent },
+  { path: "course/:id", component: CourseDetailComponent },
+  { path: "add/course", component: AddCourseComponent },
   { path: "login", component: LoginComponent }
 ];
 

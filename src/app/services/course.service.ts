@@ -21,8 +21,8 @@ export class CourseService {
     return this.axiosClient.get(`${this.apiURL}/${id}`);
   }
 
-  addCourse(id, data) {
-    return this.axiosClient.post(`${this.apiURL}/${id}`, data);
+  addCourse(data) {
+    return this.axiosClient.post(this.apiURL, data);
   }
 
   editCourse(id, data) {
