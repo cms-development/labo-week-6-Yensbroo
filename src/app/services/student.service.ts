@@ -20,7 +20,7 @@ export class StudentService {
   }
 
   getStudent(id) {
-    return this.axiosClient.get(`${this.apiURL}/${id}`);
+    return this.axiosClient.get(`${this.apiURL}/${id}?include=field_courses`);
   }
 
   addStudent(data) {

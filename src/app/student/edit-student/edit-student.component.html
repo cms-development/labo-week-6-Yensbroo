@@ -1,3 +1,31 @@
-<p>
-  edit-student works!
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8 add-student__container">
+      <h1>Bewerk student</h1>
+      <form>
+        <div class="form-group">
+          <label for="">Voornaam</label>
+          <input type="text" [(ngModel)]="student?.attributes.field_first_name" name="firstName">
+        </div>
+        <div class="form-group">
+          <label for="">Achternaam</label>
+          <input type="text" [ngModel]="student?.attributes.name | split:' '" name="lastName">
+        </div>
+        <div class="form-group">
+          <label for="">Cursussen</label><br>
+          <select name="course_id" id="selectedCourse" class="col-lg-10" [(ngModel)]="selectedCourse">
+            <option value="" selected>Kies een cursus</option>
+            <option *ngFor="let course of courses" [ngValue]="course">{{course.attributes.name}}</option>
+          </select>
+          <button class="add-course col-lg-2" (click)="addCourseToArray()">Voeg cursus toe</button>
+          <ul>
+            <li *ngFor="let course of currentCourses">
+              {{course.attributes.name}} <fa-icon class="times" [icon]="faTimes" (click)="removeCourseFromArray(course.id)"></fa-icon>
+            </li>
+          </ul>
+        </div>
+        <button class="add-student" (click)="editStudent()">Bewerk student</button>
+      </form>
+    </div>
+  </div>
+</div>

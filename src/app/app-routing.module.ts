@@ -11,12 +11,14 @@ import { InstructorDetailComponent } from "./instructor/instructor-detail/instru
 import { AddInstructorComponent } from "./instructor/add-instructor/add-instructor.component";
 import { CourseDetailComponent } from "./course/course-detail/course-detail.component";
 import { AddCourseComponent } from "./course/add-course/add-course.component";
+import { EditStudentComponent } from "./student/edit-student/edit-student.component";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "students", component: StudentListComponent },
   { path: "student/:id", component: StudentDetailComponent },
   { path: "add/student", component: AddStudentComponent },
+  { path: "edit/student/:id", component: EditStudentComponent },
   { path: "instructors", component: InstructorListComponent },
   { path: "instructor/:id", component: InstructorDetailComponent },
   { path: "add/instructor", component: AddInstructorComponent },
