@@ -66,8 +66,6 @@ export class EditCourseComponent implements OnInit {
     const filteredStudents = this.students.filter(student => {
       return student.id !== id;
     });
-    console.log(id);
     this.currentStudents = filteredStudents;
-    //console.log(this.currentStudents);
   }
 }

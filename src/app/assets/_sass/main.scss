@@ -9,8 +9,11 @@
 @import './components/lists';
 @import './components/tables';
 @import './components/links';
+@import './components/header';
 
 body {
   background: #F3F7F0;
   font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
 }

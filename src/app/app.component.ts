@@ -14,5 +14,6 @@ export class AppComponent {
       this.authenticated = true;
     }
   }
+
   title = "yensbroo";
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { InstructorService } from "src/app/services/instructor.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { academicTitle, academicRank } from "../academics";
 
@@ -18,6 +18,7 @@ export class EditInstructorComponent implements OnInit {
   currentTitlesId = [];
   ranks = academicRank;
   selectedTitle;
+
   id = this.route.snapshot.paramMap.get("id");
   constructor(private instructorService: InstructorService, private route: ActivatedRoute) {}
 

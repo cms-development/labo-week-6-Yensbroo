@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { academicRank, academicTitle } from "../academics";
 import { InstructorService } from "src/app/services/instructor.service";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-instructor",
@@ -18,6 +19,7 @@ export class AddInstructorComponent implements OnInit {
   titleList: Array<any> = [];
   selectedRank;
   selectedTitle;
+
   constructor(private instructorService: InstructorService) {}
 
   ngOnInit() {}

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row d-flex align-items-center">
     <h1 class="col-lg-2">Studenten</h1>
-    <a routerLink="/add/student" class="add-student">+ Voeg nieuwe student toe</a>
+    <a routerLink="/add/student" class="add-student" *ngIf="authenticated">+ Voeg nieuwe student toe</a>
   </div>
   <div class="row">
 
@@ -11,12 +11,12 @@
           <tr>
             <th>Studenten ID</th>
             <th>Naam</th>
-            <th>Acties</th>
+            <th *ngIf="authenticated">Acties</th>
           </tr>
           <tr *ngFor="let student of students">
             <td>{{student.attributes.id}}</td>
             <td><a [routerLink]="['/student' , student.attributes.uuid ]">{{student.attributes.name}}</a></td>
-            <td>
+            <td *ngIf="authenticated">
               <fa-icon class="trash" [icon]="faTrash" (click)="deleteStudent(student.attributes.uuid)"></fa-icon>
               <fa-icon [icon]="faPenSquare" [routerLink]="['/student', student.attributes.uuid]"></fa-icon>
             </td>

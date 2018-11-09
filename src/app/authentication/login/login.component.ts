@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "src/app/services/user.service";
 import { Router } from "@angular/router";
+import { LocalstorageService } from "src/app/services/localstorage.service";
 
 @Component({
   selector: "app-login",
@@ -10,9 +11,17 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   username;
   password;
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private localstorageService: LocalstorageService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (localStorage.token) {
+      this.router.navigate(["/"]);
+    }
+  }
 
   submit() {
     let formData = new FormData();
@@ -27,8 +36,7 @@ export class LoginComponent implements OnInit {
       formData.append(key, data[key]);
     }
     this.userService.login(formData).then(res => {
-      console.log(res);
-      localStorage.setItem("token", "Bearer " + res.data.access_token);
+      this.localstorageService.setItem("token", res.data.access_token);
       this.router.navigate(["/"]);
     });
   }

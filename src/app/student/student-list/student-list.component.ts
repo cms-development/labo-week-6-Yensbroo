@@ -12,7 +12,11 @@ export class StudentListComponent implements OnInit {
   students: any;
   faTrash = faTrash;
   faPenSquare = faPenSquare;
+  authenticated = false;
   ngOnInit() {
+    if (localStorage.token) {
+      this.authenticated = true;
+    }
     this.getStudents();
   }
 

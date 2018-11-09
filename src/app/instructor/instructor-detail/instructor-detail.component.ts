@@ -15,9 +15,13 @@ export class InstructorDetailComponent implements OnInit {
   currentTitles: Array<any> = [];
   currentRank: any;
   instructor: any;
+  authenticated = false;
   constructor(private instructorService: InstructorService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    if (localStorage.token) {
+      this.authenticated = true;
+    }
     this.getInstructor();
   }
 

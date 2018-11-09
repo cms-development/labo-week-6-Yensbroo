@@ -10,10 +10,14 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class StudentDetailComponent implements OnInit {
   student: any;
   courseList: any;
+  authenticated = false;
   id = this.route.snapshot.paramMap.get("id");
   constructor(private studentService: StudentService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    if (localStorage.token) {
+      this.authenticated = true;
+    }
     this.getStudent();
   }
 

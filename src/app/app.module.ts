@@ -9,6 +9,7 @@ import { StudentModule } from "./student/student.module";
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { AuthenticationModule } from "./authentication/authentication.module";
+import { CoreModule } from "./core/core.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { AuthenticationModule } from "./authentication/authentication.module";
     StudentModule,
     DashboardModule,
     AuthenticationModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

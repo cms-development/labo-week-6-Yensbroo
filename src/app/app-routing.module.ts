@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, CanActivate } from "@angular/router";
+import { AuthGuardService as AuthGuard } from "./authentication/auth-guard.service";
 import { StudentListComponent } from "./student/student-list/student-list.component";
 import { DashboardComponent } from "./dashboard/dashboard/dashboard.component";
 import { InstructorListComponent } from "./instructor/instructor-list/instructor-list.component";
@@ -19,16 +20,16 @@ const routes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "students", component: StudentListComponent },
   { path: "student/:id", component: StudentDetailComponent },
-  { path: "add/student", component: AddStudentComponent },
-  { path: "edit/student/:id", component: EditStudentComponent },
+  { path: "add/student", component: AddStudentComponent, canActivate: [AuthGuard] },
+  { path: "edit/student/:id", component: EditStudentComponent, canActivate: [AuthGuard] },
   { path: "instructors", component: InstructorListComponent },
   { path: "instructor/:id", component: InstructorDetailComponent },
-  { path: "add/instructor", component: AddInstructorComponent },
-  { path: "edit/instructor/:id", component: EditInstructorComponent },
+  { path: "add/instructor", component: AddInstructorComponent, canActivate: [AuthGuard] },
+  { path: "edit/instructor/:id", component: EditInstructorComponent, canActivate: [AuthGuard] },
   { path: "courses", component: CourseListComponent },
   { path: "course/:id", component: CourseDetailComponent },
-  { path: "add/course", component: AddCourseComponent },
-  { path: "edit/course/:id", component: EditCourseComponent },
+  { path: "add/course", component: AddCourseComponent, canActivate: [AuthGuard] },
+  { path: "edit/course/:id", component: EditCourseComponent, canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent }
 ];
 

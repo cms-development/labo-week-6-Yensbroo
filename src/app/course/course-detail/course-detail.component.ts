@@ -12,9 +12,13 @@ export class CourseDetailComponent implements OnInit {
   course: any;
   currentInstructor: [];
   currentStudents: [];
+  authenticated = false;
   constructor(private courseService: CourseService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    if (localStorage.token) {
+      this.authenticated = true;
+    }
     this.getCourse();
   }
 

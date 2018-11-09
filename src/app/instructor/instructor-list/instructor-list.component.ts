@@ -11,9 +11,13 @@ export class InstructorListComponent implements OnInit {
   instructors: any;
   faTrash = faTrash;
   faPenSquare = faPenSquare;
+  authenticated = false;
   constructor(private instructorService: InstructorService) {}
 
   ngOnInit() {
+    if (localStorage.token) {
+      this.authenticated = true;
+    }
     this.getInstructors();
   }
 

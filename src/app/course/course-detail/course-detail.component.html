@@ -3,7 +3,7 @@
     <div class="col-lg-10 page-container">
       <div class="row d-flex align-items-center">
         <h1 class="col-lg-9">{{course?.attributes.name}}</h1>
-        <div class="actions">
+        <div class="actions" *ngIf="authenticated">
           <a class="edit-student" [routerLink]="['/edit/course', course.attributes.uuid]">Bewerk cursus</a>
           <button class="remove-student" (click)="deleteCourse()">Verwijder cursus</button>
         </div>

@@ -11,9 +11,13 @@ export class CourseListComponent implements OnInit {
   faTrash = faTrash;
   faPenSquare = faPenSquare;
   courses: any;
+  authenticated = false;
   constructor(private courseService: CourseService) {}
 
   ngOnInit() {
+    if (localStorage.token) {
+      this.authenticated = true;
+    }
     this.getCourses();
   }
 
