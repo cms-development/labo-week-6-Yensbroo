@@ -18,7 +18,7 @@ export class CourseService {
   }
 
   getCourse(id) {
-    return this.axiosClient.get(`${this.apiURL}/${id}`);
+    return this.axiosClient.get(`${this.apiURL}/${id}?include=field_instructor,field_students`);
   }
 
   addCourse(data) {

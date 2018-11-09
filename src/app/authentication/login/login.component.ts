@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       formData.append(key, data[key]);
     }
     this.userService.login(formData).then(res => {
+      console.log(res);
       localStorage.setItem("token", "Bearer " + res.data.access_token);
       this.router.navigate(["/"]);
     });

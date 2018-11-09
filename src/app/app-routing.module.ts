@@ -12,6 +12,7 @@ import { AddInstructorComponent } from "./instructor/add-instructor/add-instruct
 import { CourseDetailComponent } from "./course/course-detail/course-detail.component";
 import { AddCourseComponent } from "./course/add-course/add-course.component";
 import { EditStudentComponent } from "./student/edit-student/edit-student.component";
+import { EditCourseComponent } from "./course/edit-course/edit-course.component";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: "courses", component: CourseListComponent },
   { path: "course/:id", component: CourseDetailComponent },
   { path: "add/course", component: AddCourseComponent },
+  { path: "edit/course/:id", component: EditCourseComponent },
   { path: "login", component: LoginComponent }
 ];
 
