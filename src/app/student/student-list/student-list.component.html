@@ -18,7 +18,7 @@
             <td><a [routerLink]="['/student' , student.attributes.uuid ]">{{student.attributes.name}}</a></td>
             <td *ngIf="authenticated">
               <fa-icon class="trash" [icon]="faTrash" (click)="deleteStudent(student.attributes.uuid)"></fa-icon>
-              <fa-icon [icon]="faPenSquare" [routerLink]="['/student', student.attributes.uuid]"></fa-icon>
+              <fa-icon [icon]="faPenSquare" [routerLink]="['/edit/student', student.attributes.uuid]"></fa-icon>
             </td>
           </tr>
         </table>

@@ -20,7 +20,7 @@ export class AddInstructorComponent implements OnInit {
   selectedRank;
   selectedTitle;
 
-  constructor(private instructorService: InstructorService) {}
+  constructor(private instructorService: InstructorService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -36,7 +36,9 @@ export class AddInstructorComponent implements OnInit {
         }
       }
     };
-    this.instructorService.addInstructor(data).then();
+    this.instructorService.addInstructor(data).then(res => {
+      this.router.navigate([`/instructor/${res.data.data.id}`]);
+    });
   }
   addTitleToArray() {
     this.titleList.push(this.selectedTitle);
