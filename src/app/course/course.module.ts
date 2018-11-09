@@ -6,9 +6,10 @@ import { AddCourseComponent } from "./add-course/add-course.component";
 import { EditCourseComponent } from "./edit-course/edit-course.component";
 import { FormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [CourseListComponent, CourseDetailComponent, AddCourseComponent, EditCourseComponent],
-  imports: [CommonModule, FormsModule, FontAwesomeModule]
+  imports: [CommonModule, FormsModule, FontAwesomeModule, RouterModule]
 })
 export class CourseModule {}

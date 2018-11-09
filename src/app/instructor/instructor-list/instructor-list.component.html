@@ -18,7 +18,7 @@
             <td><a [routerLink]="['/instructor' , instructor.attributes.uuid ]">{{instructor.attributes.name}}</a></td>
             <td>
               <fa-icon class="trash" [icon]="faTrash" (click)="deleteinstructor(instructor.attributes.uuid)"></fa-icon>
-              <fa-icon [icon]="faPenSquare" [routerLink]="['/instructor', instructor.attributes.uuid]"></fa-icon>
+              <fa-icon [icon]="faPenSquare" [routerLink]="['/edit/instructor', instructor.attributes.uuid]"></fa-icon>
             </td>
           </tr>
         </table>

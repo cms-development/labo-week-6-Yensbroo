@@ -1,3 +1,28 @@
-<p>
-  course-list works!
-</p>
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <h1 class="col-lg-2">Cursussen</h1>
+    <a routerLink="/add/course" class="add-student">+ Voeg nieuwe cursus toe</a>
+  </div>
+  <div class="row">
+
+    <div class="col-lg-12">
+      <div class="page-container">
+        <table>
+          <tr>
+            <th>Cursus ID</th>
+            <th>Naam</th>
+            <th>Acties</th>
+          </tr>
+          <tr *ngFor="let course of courses">
+            <td>{{course.attributes.id}}</td>
+            <td><a [routerLink]="['/course' , course.attributes.uuid ]">{{course.attributes.name}}</a></td>
+            <td>
+              <fa-icon class="trash" [icon]="faTrash" (click)="deleteCourse(course.attributes.uuid)"></fa-icon>
+              <fa-icon [icon]="faPenSquare" [routerLink]="['/edit/course', course.attributes.uuid]"></fa-icon>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
