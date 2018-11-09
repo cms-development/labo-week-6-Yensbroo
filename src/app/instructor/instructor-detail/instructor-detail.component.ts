@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { InstructorService } from "src/app/services/instructor.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { academicRank, academicTitle } from "../academics";
 
 @Component({
@@ -15,7 +15,7 @@ export class InstructorDetailComponent implements OnInit {
   currentTitles: Array<any> = [];
   currentRank: any;
   instructor: any;
-  constructor(private instructorService: InstructorService, private route: ActivatedRoute) {}
+  constructor(private instructorService: InstructorService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.getInstructor();
@@ -48,6 +48,12 @@ export class InstructorDetailComponent implements OnInit {
           this.currentTitles.push({ id: title.id, name: title.name });
         }
       });
+    });
+  }
+
+  deleteInstructor() {
+    this.instructor.deleteInstructor(this.id).then(() => {
+      this.router.navigate(["/instructors"]);
     });
   }
 }

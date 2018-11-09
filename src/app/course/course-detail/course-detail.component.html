@@ -1,3 +1,27 @@
-<p>
-  course-detail works!
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-10 page-container">
+      <div class="row d-flex align-items-center">
+        <h1 class="col-lg-9">{{course?.attributes.name}}</h1>
+        <div class="actions">
+          <a class="edit-student" [routerLink]="['/edit/course', course.attributes.uuid]">Bewerk cursus</a>
+          <button class="remove-student" (click)="deleteCourse()">Verwijder cursus</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12"><strong>Lector:</strong> {{currentInstructor?.attributes.name}}</div>
+      </div>
+      <div class="row">
+        <h1 class="col-lg-12">Studenten</h1>
+        <div class="col-lg-12">
+          <ul *ngIf="currentStudents.length >= 1; else noStudent">
+            <li *ngFor="let student of currentStudents">{{student?.attributes.name}}</li>
+          </ul>
+          <ng-template #noStudent>
+            <p>Deze cursus heeft nog geen studenten</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

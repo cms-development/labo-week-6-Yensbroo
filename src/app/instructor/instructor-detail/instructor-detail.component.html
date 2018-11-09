@@ -5,7 +5,7 @@
         <h1 class="col-lg-9">{{instructor?.attributes.name}}</h1>
         <div class="actions">
           <a class="edit-student" [routerLink]="['/edit/instructor', instructor.attributes.uuid]">Bewerk lector</a>
-          <button class="remove-student" (click)="deleteStudent()">Verwijder lector</button>
+          <button class="remove-student" (click)="deleteInstructor()">Verwijder lector</button>
         </div>
       </div>
       <div class="row">
