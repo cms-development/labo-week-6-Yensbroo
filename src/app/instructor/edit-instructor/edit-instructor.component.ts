@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { InstructorService } from "src/app/services/instructor.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router, Route } from "@angular/router";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { academicTitle, academicRank } from "../academics";
 
@@ -20,7 +20,7 @@ export class EditInstructorComponent implements OnInit {
   selectedTitle;
 
   id = this.route.snapshot.paramMap.get("id");
-  constructor(private instructorService: InstructorService, private route: ActivatedRoute) {}
+  constructor(private instructorService: InstructorService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.getInstructor();
@@ -50,7 +50,7 @@ export class EditInstructorComponent implements OnInit {
       }
     };
     this.instructorService.editInstructor(this.id, data).then(res => {
-      console.log(res.data);
+      this.router.navigate([`/instructor/${res.data.data.id}`]);
     });
   }
 
