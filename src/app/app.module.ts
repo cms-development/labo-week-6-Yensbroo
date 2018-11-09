@@ -9,7 +9,6 @@ import { StudentModule } from "./student/student.module";
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { AuthenticationModule } from "./authentication/authentication.module";
-import { SplitPipe } from "./split.pipe";
 
 @NgModule({
   declarations: [AppComponent],

@@ -7,11 +7,9 @@ import { EditStudentComponent } from "./edit-student/edit-student.component";
 import { RouterModule } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule } from "@angular/forms";
-import { SplitPipe } from "../split.pipe";
-import { PipesModule } from "../pipes/pipes.module";
 
 @NgModule({
   declarations: [StudentListComponent, StudentDetailComponent, AddStudentComponent, EditStudentComponent],
-  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule, PipesModule]
+  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule]
 })
 export class StudentModule {}

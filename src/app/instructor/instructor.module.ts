@@ -7,10 +7,9 @@ import { EditInstructorComponent } from "./edit-instructor/edit-instructor.compo
 import { RouterModule } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule } from "@angular/forms";
-import { PipesModule } from "../pipes/pipes.module";
 
 @NgModule({
   declarations: [InstructorListComponent, InstructorDetailComponent, AddInstructorComponent, EditInstructorComponent],
-  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule, PipesModule]
+  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule]
 })
 export class InstructorModule {}

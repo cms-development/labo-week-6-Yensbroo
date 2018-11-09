@@ -12,6 +12,7 @@ import { CourseService } from "src/app/services/course.service";
 export class EditStudentComponent implements OnInit {
   student: any;
   courses: any;
+  lastName;
   currentCourses: any;
   faTimes = faTimes;
   selectedCourse;
@@ -31,6 +32,8 @@ export class EditStudentComponent implements OnInit {
   getStudent() {
     this.studentService.getStudent(this.id).then(res => {
       this.student = res.data.data;
+      const splitName = res.data.data.attributes.name.split(" ");
+      this.lastName = splitName[1];
       this.currentCourses = res.data.included;
     });
   }
@@ -41,13 +44,17 @@ export class EditStudentComponent implements OnInit {
     });
   }
 
+  changeName(newName) {
+    this.lastName = newName;
+  }
+
   editStudent() {
     const data = {
       data: {
         type: "student--student",
         id: this.id,
         attributes: {
-          name: `${this.student.attributes.field_first_name} ${this.student.attributes.name}`,
+          name: `${this.student.attributes.field_first_name} ${this.lastName}`,
           field_first_name: this.student.attributes.field_first_name
         },
         relationships: {
