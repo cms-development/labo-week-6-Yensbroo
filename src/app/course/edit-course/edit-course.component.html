@@ -21,7 +21,7 @@
         <div class="form-group">
           <label for="">Studenten</label><br>
           <select name="student_id" id="selectedStudent" class="col-lg-9" [(ngModel)]="selectedStudent">
-            <option value="" selected>Kies een student</option>
+            <option value="">Kies een student</option>
             <option *ngFor="let student of students" [ngValue]="student">{{student.attributes.name}}</option>
           </select>
           <button class="add-course col-lg-3" (click)="addStudentToArray()">Voeg student toe</button>
