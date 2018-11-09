@@ -39,7 +39,6 @@ export class AddInstructorComponent implements OnInit {
   addTitleToArray() {
     this.titleList.push(this.selectedTitle);
     this.addedTitles.push(this.selectedTitle.id);
-    console.log(this.addedTitles);
   }
 
   removeTitleFromArray(id) {

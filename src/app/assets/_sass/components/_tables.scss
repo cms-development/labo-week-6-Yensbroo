@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding-left: 20px;
+
+    a {
+      color: #087E8B;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+
+  tr {
+    height: 50px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #F3F7F0;
+  }
+}
