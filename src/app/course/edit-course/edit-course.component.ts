@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { CourseService } from "src/app/services/course.service";
 import { StudentService } from "src/app/services/student.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { InstructorService } from "src/app/services/instructor.service";
 @Component({
   selector: "app-edit-course",
@@ -23,7 +23,8 @@ export class EditCourseComponent implements OnInit {
     private courseService: CourseService,
     private studentService: StudentService,
     private instructorService: InstructorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -43,6 +44,33 @@ export class EditCourseComponent implements OnInit {
       this.currentStudents = res.data.included.filter(data => {
         return data.type === "student--student";
       });
+    });
+  }
+
+  editCourse() {
+    const data = {
+      data: {
+        type: "course--course",
+        id: this.id,
+        attributes: {
+          name: this.course.attributes.name,
+          field_academic_institution: this.course.attributes.field_academic_institution
+        },
+        relationships: {
+          field_instructor: {
+            data: {
+              type: "instructor--instructor",
+              id: this.selectedInstructor
+            }
+          },
+          field_students: {
+            data: this.currentStudents
+          }
+        }
+      }
+    };
+    this.courseService.editCourse(this.id, data).then(res => {
+      this.router.navigate([`/course/${res.data.data.id}`]);
     });
   }
 
