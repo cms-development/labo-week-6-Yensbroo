@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { academicRank, academicTitle } from "./academics";
+import { academicRank, academicTitle } from "../academics";
 import { InstructorService } from "src/app/services/instructor.service";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 

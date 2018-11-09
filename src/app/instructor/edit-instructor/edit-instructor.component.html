@@ -1,3 +1,38 @@
-<p>
-  edit-instructor works!
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8 add-student__container">
+      <h1>Bewerk student</h1>
+      <form>
+        <div class="form-group">
+          <label for="">Voornaam</label>
+          <input type="text" [(ngModel)]="instructor?.attributes.field_first_name" name="firstName">
+        </div>
+        <div class="form-group">
+          <label for="">Achternaam</label>
+          <input type="text" [ngModel]="lastName" (ngModelChange)="changeName($event)" name="lastName">
+        </div>
+        <div class="form-group">
+          <label for="">Academische rank</label><br>
+          <select name="course_id" id="selectedRank" class="col-lg-12" [(ngModel)]="instructor?.attributes.field_academic_rank">
+            <option value="" selected>Kies een academische rank</option>
+            <option *ngFor="let rank of ranks" [ngValue]="rank.id">{{rank.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Academische titel</label><br>
+          <select name="instructor" id="selectedTitle" class="col-lg-10" [(ngModel)]="selectedTitle">
+            <option value="">Kies een titel</option>
+            <option *ngFor="let title of titles" [ngValue]="title">{{title.name}}</option>
+          </select>
+          <button class="add-course col-lg-2" (click)="addTitleToArray()">Voeg titel toe</button>
+          <ul>
+            <li *ngFor="let title of currentTitles">
+              {{title.name}} <fa-icon class="times" [icon]="faTimes" (click)="removeTitleFromArray(title.id)"></fa-icon>
+            </li>
+          </ul>
+        </div>
+        <button class="add-student" (click)="editInstructor()">Bewerk student</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,10 @@ import { RouterModule } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule } from "@angular/forms";
 import { SplitPipe } from "../split.pipe";
+import { PipesModule } from "../pipes/pipes.module";
 
 @NgModule({
-  declarations: [StudentListComponent, StudentDetailComponent, AddStudentComponent, EditStudentComponent, SplitPipe],
-  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule]
+  declarations: [StudentListComponent, StudentDetailComponent, AddStudentComponent, EditStudentComponent],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule, PipesModule]
 })
 export class StudentModule {}
