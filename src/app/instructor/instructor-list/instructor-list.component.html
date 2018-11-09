@@ -17,7 +17,7 @@
             <td>{{instructor.attributes.id}}</td>
             <td><a [routerLink]="['/instructor' , instructor.attributes.uuid ]">{{instructor.attributes.name}}</a></td>
             <td *ngIf="authenticated">
-              <fa-icon class="trash" [icon]="faTrash" (click)="deleteinstructor(instructor.attributes.uuid)"></fa-icon>
+              <fa-icon class="trash" [icon]="faTrash" (click)="deleteInstructor(instructor.attributes.uuid)"></fa-icon>
               <fa-icon [icon]="faPenSquare" [routerLink]="['/edit/instructor', instructor.attributes.uuid]"></fa-icon>
             </td>
           </tr>

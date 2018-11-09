@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, SimpleChanges, SimpleChange } from "@angular/core";
 import { LocalstorageService } from "src/app/services/localstorage.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -9,7 +10,7 @@ import { LocalstorageService } from "src/app/services/localstorage.service";
 export class HeaderComponent implements OnInit {
   @Input() authenticated: Boolean;
   private _authenticated = false;
-  constructor(private localstorageService: LocalstorageService) {
+  constructor(private localstorageService: LocalstorageService, private router: Router) {
     this.localstorageService.watchStorage().subscribe(data => {
       this._authenticated = data;
     });
@@ -23,5 +24,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.localstorageService.removeItem("token");
+    this.router.navigate(["/"]);
   }
 }

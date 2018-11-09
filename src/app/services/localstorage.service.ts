@@ -14,7 +14,7 @@ export class LocalstorageService {
   }
 
   setItem(key: string, data: any) {
-    localStorage.setItem(key, data);
+    localStorage.setItem(key, `Bearer ${data}`);
     this.storageSub.next(true);
   }
 
