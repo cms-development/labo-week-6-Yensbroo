@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { StudentService } from "src/app/services/student.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-student-detail',
-  templateUrl: './student-detail.component.html',
-  styleUrls: ['./student-detail.component.scss']
+  selector: "app-student-detail",
+  templateUrl: "./student-detail.component.html",
+  styleUrls: ["./student-detail.component.scss"]
 })
 export class StudentDetailComponent implements OnInit {
-
-  constructor() { }
+  student: any;
+  courseList: any;
+  id = this.route.snapshot.paramMap.get("id");
+  constructor(private studentService: StudentService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    this.getStudent();
   }
 
+  getStudent() {
+    this.studentService.getStudent(this.id).then(res => {
+      this.student = res.data.data;
+      this.courseList = res.data.included;
+    });
+  }
+
+  deleteStudent() {
+    this.studentService.deleteStudent(this.id).then(() => {
+      this.router.navigate(["/students"]);
+    });
+  }
 }

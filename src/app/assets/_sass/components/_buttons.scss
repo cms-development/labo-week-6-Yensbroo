@@ -1,19 +1,41 @@
 .add-student,
-  {
-  background: #087E8B;
-  color: white;
+.add-course,
+.edit-student,
+.remove-student {
   border-radius: 4px;
+  cursor: pointer
+}
+
+.edit-student,
+.add-student {
+  background: #087E8B;
+}
+
+.edit-student,
+.remove-student,
+.add-student {
+  color: white;
   padding: 10px 5px;
+}
+
+.add-student {
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
+}
+
+.edit-student {
+  font-size: 12px;
+}
+
+
+.remove-student {
+  background: rgb(180, 18, 18);
+  margin-left: 20px;
 }
 
 
 .add-course {
   background: white;
-  border-radius: 4px;
   border: 1px solid rgba(25, 25, 25, 0.2);
   height: 35px;
-  cursor: pointer;
 }
