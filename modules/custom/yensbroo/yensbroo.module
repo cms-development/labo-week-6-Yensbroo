@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Contains yensbroo.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function yensbroo_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the yensbroo module.
+    case 'help.page.yensbroo':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Yens Broothaers module for hook alterations') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function yensbroo_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+
+  // sessie ophalen uit request object
+  $session = \Drupal::request()->getSession();
+ 
+  // aantal views ophalen
+  $current_counts = $session->get('view_counts', []);
+ 
+  // nog geen waarde in array? = nog niet bekeken
+  if (!isset($current_counts[$entity->id()])) {
+    // If this is the first time they've viewed the page we need to start the
+    // counter.
+    $current_counts[$entity->id()] = 1;
+ 
+    \Drupal::messenger()->addMessage(
+      'Dit is de eerste keer dat je dit bericht bekijkt'
+    );
+  }
+  else {
+    // If they have already viewed this page just increment the existing
+    // counter.
+    $current_counts[$entity->id()]++;
+ 
+    \Drupal::messenger()->addMessage(
+      'Dit is de ' . $current_counts[$entity->id()] . ' keer dat je dit bericht bekijkt'
+    );
+  }
+ 
+  // Save the updated values.
+  $session->set('view_counts', $current_counts);
+ 
+ 
+  /*if ($display->getComponent('mymodule_addition')) {
+    $build['mymodule_addition'] = [
+      '#markup' => mymodule_addition($entity),
+      '#theme' => 'mymodule_my_additional_field',
+    ];
+  }*/
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function yensbroo_theme() {
+  return [
+    'yensbroo' => [
+      'render element' => 'children',
+    ],
+  ];
+}

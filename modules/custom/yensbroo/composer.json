@@ -1,0 +1,14 @@
+{
+  "name": "drupal/yensbroo",
+  "type": "drupal-module",
+  "description": "Yens Broothaers module for hook alterations",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/yensbroo",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/yensbroo",
+    "source": "http://cgit.drupalcode.org/yensbroo"
+  },
+  "require": { }
+}

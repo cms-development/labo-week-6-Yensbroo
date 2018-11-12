@@ -1,0 +1,5 @@
+name: 'yensbroo'
+type: module
+description: 'Yens Broothaers module for hook alterations'
+core: 8.x
+package: 'Custom'
